@@ -10,9 +10,54 @@
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     <script src="js/jquery.fancybox.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    <link rel="stylesheet" href="css/index.css">
-    
+
+
+<script>
+  const translations = {
+    en: {
+      work: "Work",
+      about: "About",
+      resume: "Resume",
+      contact: "Contact",
+      gallery: "Gallery"
+    },
+    fr: {
+      work: "Projets",
+      about: "À propos",
+      resume: "CV",
+      contact: "Contact",
+      gallery: "Galerie"
+    }
+  };
+
+  function updateLanguageTexts(lang) {
+    document.querySelectorAll("[data-key]").forEach(el => {
+      const key = el.getAttribute("data-key");
+      el.textContent = translations[lang][key];
+    });
+  }
+
+  // On page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "en";
+    document.documentElement.lang = savedLang;
+    updateLanguageTexts(savedLang);
+  });
+
+  function switchLanguage() {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === "fr" ? "en" : "fr";
+    document.documentElement.lang = newLang;
+    localStorage.setItem("lang", newLang);
+    updateLanguageTexts(newLang);
+  }
+</script>
+
+
+
 </head>
 <body>
+
     <div id="loading">
         <div id="spinner"></div>
     </div>
@@ -20,44 +65,74 @@
         <h1 onclick="closemagnify()"><i class="fas fa-times"></i></h1>
         <div id="img_here"></div>
     </div>
-    <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
-        <table>
-            <tr>
-                <td id="logo">Amine Hammami</td>
-                <td id="navigation">
-                    <a href="#work">Work</a>
-                    <a href="#bio">About</a>
-                    <a href="#resume">Resume</a>
-                    <a href="#contact">Contact</a>
-                    <a href="blog.html">Gallery</a>
-                </td>
-            </tr>
-        </table>
-    </header>
+<header id="header" class="animated slideInDown" style="animation-delay:1.4s;">
+  <table>
+  <tbody>
+    <tr>
+      <!--
+	  <td id="language">
+        <button class="btn_language" id="lang-btn" onclick="switchLanguage()">Fr</button>
+      </td>
+	  !-->
+	<td id="language-toggle">
+	  <label class="switch">
+		<input type="checkbox" id="lang-btn" onchange="switchLanguage()">
+		<span class="slider round">
+		  <span class="lang-label lang-fr">FR</span>
+		  <span class="lang-label lang-en">EN</span>
+		</span>
+	  </label>
+	</td>
+      <td id="logo">Amine Hammami</td>
+      <td id="navigation">
+          <a href="#work" data-en="Work" data-fr="Projets">Work</a>
+          <a href="#bio" data-en="About" data-fr="À propos">About</a>
+          <a href="#resume" data-en="Resume" data-fr="CV">Resume</a>
+          <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+          <a href="blog.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
+        </nav>
+      </td>
+	</tr>
+	</tbody>
+  </table>
+</header>
+
+
+
     <table id="top_part">
         <tr>
-            <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
-                <h1>Software/Web developer</h1>
-                <button class="btn_one" onclick="$('body,html').animate({
-                    scrollTop: $('#contact').offset().top}, 1200)">Hire Me</button><br>
-                <table>
-                    <tr>
-                        <td>
-                            <!-- <a href="https://www.facebook.com/nevix.sama"class="social"><i class="fab fa-facebook"></i></a> -->
-                            <a href="https://www.linkedin.com/in/amine-hammami/"class="social"><i class="fab fa-linkedin"></i></a>
-                            <!-- <a class="social"><i class="fab fa-instagram"></i></a> -->
-                            <a href="mailto:hammemi.amine@gmail.com"class="social"><i class="fas fa-at"></i></a>
-                            <a href="https://github.com/Amine-Hmi"class="social"><i class="fab fa-github"></i></a>
-                            
-                        </td>
-                    </tr>
-                </table>
-            </td>
+<td id="about" class="animated slideInLeft" style="animation-delay:2s;">
+  <h1 data-en="Data Analyst / Data Engineer / BI Analyst" data-fr="Analyste de données / Ingénieur de données / Analyste BI">
+    Data Analyst / Data Engineer / BI Analyst
+  </h1>
+
+  <button 
+    id="hire-me" 
+    data-en="Hire Me" 
+    data-fr="Embauchez-moi" 
+    class="btn_one" 
+    onclick="$('body,html').animate({ scrollTop: $('#contact').offset().top }, 1200)">
+    Hire Me
+  </button>
+  <br>
+
+  <table>
+    <tr>
+      <td>
+        <a href="https://www.linkedin.com/in/amine-hammami/" class="social"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:hammemi.amine@gmail.com" class="social"><i class="fas fa-at"></i></a>
+        <a href="https://github.com/Amine-Hmi" class="social"><i class="fab fa-github"></i></a>
+      </td>
+    </tr>
+  </table>
+</td>
+
             <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
         </tr>
     </table>
     <div id="work">
-        <h1>Work</h1>
+	
+          <h1 data-en="Work" data-fr="Projets">Work</h1>
         <div id="portfolio" class="section">
 
             <div class="container">
@@ -200,43 +275,47 @@
         
     </div>
    
+
+
+</div>
     <div id="bio">
-        <h1>About</h1>
-        <div class="bio_infos">
-            <p>
-                Hi my name is Amine, I am a former aircraft maintenance engineer with more than 6 years of demonstrated experience, geek and a guitar player/Mobile photographer in my spare time .
-            </p>
-            <p>
-                I started out my carrer as an aircraft maintenance engineer and soon discovered it wasn't the carrer I was aspiring for.
-                While it is interesting and challenging, it uses a lot of old technology in its designs and that meant two things: 
-                the technology is effective and robust (luckily) which made it stand the test of time, but it also meant there won't be any drastic changes, any revolutionary technology or any breakthrough in the futur  as the old saying goes <cite> " When you're onto a good thing, stick with it "</cite>, and that I was bound to do the same monotonous tasks with same knowledge acquired years ago for the rest of my carreer.
-                <p>
-                All I knew was that I wanted to be in an industry that was more fast paced and innovative and decided that it was time for me to seek another path.</p>
-            <p>
-                I always had a knack for hacking, reading, disassembling and solving problems (that's what led me to the engineering field in the first place)
-                but I also had a thing for design, composition, art and photography especially in the digital realm.
-            </p>
-            <p>
-                Since high school, i've been fascinated with computers and even got in the world of coding by learning to develop few flash games in Actionscript
-                or hacking them in lua or asm language, several times i coded some windows batch scripts or AutoIt snippets to automate redundant tasks and
-                learned to use Linux to interact with my raspberry PI3, but never considered coding as a job so far.
-                <p>
-                The ever-rising boom of software developement, especially with the advent of Internet & big data
-                made me realize, it was time for me to get back in touch with my old friend.
-            </p>
-                <p>
-                And so I went back to college, and discovered what a versatile discipline developement is and started exploring its specialties (still yet) and immediately fell in love with web developement and especially front-end developement because of its creative and artistic side where not only you have to come up with a technical solution but also have to make it aestheticaly pleasing to the eye.
-            </p>
-            </p>
-            <p>
-                I could finally combine my passions and put to practice the knowledge i've acquired over the years, while fumbling with photoshop trying to learn photo manipulation or learning Css and JS so i could customize the layout of my favorite websites.
-            </p>
-        </div>
-    </div>
-    <div id="resume">
+  <h1 data-en="About" data-fr="À propos">About</h1>
+  <div class="bio_infos">
+    <p 
+      data-en="Hello! I'm Amine Hammami, a former aircraft maintenance engineer who transitioned into the dynamic world of data and technology. With 8+ years of technical experience and a passion for problem-solving, I decided to pivot into a more innovative field where I could combine my analytical mindset with creativity." 
+      data-fr="Bonjour ! Je suis Amine Hammami, ancien ingénieur en maintenance aéronautique reconverti dans le monde dynamique des données et des technologies. Fort de plus de 8 ans d'expérience technique et d'une passion pour la résolution de problèmes, j'ai choisi de me réorienter vers un domaine plus innovant où je peux allier esprit analytique et créativité.">
+      Hello! I'm Amine Hammami, a former aircraft maintenance engineer...
+    </p>
+
+    <p 
+      data-en="I recently graduated as a Data Analyst / Data Engineer / BI Analyst, and I'm deeply passionate about data modeling, automation, cloud technologies, and building insightful dashboards that drive business decisions." 
+      data-fr="Je suis récemment diplômé en tant qu'Analyste de données / Ingénieur de données / Analyste BI, et je suis profondément passionné par la modélisation des données, l'automatisation, les technologies cloud, et la création de tableaux de bord pertinents pour orienter les décisions d'affaires.">
+      I recently graduated as a Data Analyst / Data Engineer / BI Analyst...
+    </p>
+
+    <p 
+      data-en="Throughout my journey, I've gained hands-on experience in Python, SQL, Power BI, Databricks, and Azure. I also enjoy front-end development and design, often exploring ways to blend tech and art through web projects and data storytelling." 
+      data-fr="Tout au long de mon parcours, j'ai acquis une expérience pratique en Python, SQL, Power BI, Databricks et Azure. J'apprécie également le développement front-end et le design, explorant souvent comment combiner technologie et art à travers des projets web et des récits de données.">
+      Throughout my journey, I've gained hands-on experience...
+    </p>
+
+    <p 
+      data-en="Curious, self-driven, and constantly learning — I’m currently open to opportunities where I can apply my skills to help organizations turn data into value." 
+      data-fr="Curieux, autonome et toujours en quête d'apprentissage, je suis actuellement à la recherche d'opportunités pour mettre mes compétences au service des organisations et les aider à transformer leurs données en valeur.">
+      Curious, self-driven, and constantly learning...
+    </p>
+
+    <p 
+      data-en="When I’m not coding or designing, I’m either playing guitar, taking photos, or tinkering with Raspberry Pi projects." 
+      data-fr="Quand je ne code pas et que je ne conçois pas, je joue de la guitare, je prends des photos ou je bidouille des projets sur Raspberry Pi.">
+      When I’m not coding or designing...
+    </p>
+  </div>
+</div>
+	<div id="resume">
         <h1>Resume</h1>
         <div>
-            <button class="btn_two" onclick="window.open('./English_Cv.pdf','_blank')">My Resume</button>
+            <button  data-en="Resume" data-fr="CV" class="btn_two" onclick="window.open('./English_Cv.pdf','_blank')">My Resume</button>
         </div>
     </div>
     <div id="contact">
@@ -247,7 +326,7 @@
                         <div id="inner_div">
                             <table id="inner_table">
                                 <tr>
-                                    <td><i class="fas fa-phone"></i> &nbsp; (+216) 21 605 925</td>
+                                    <td><i class="fas fa-phone"></i> &nbsp; (+1) 514 561 8425</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fas fa-at"></i> &nbsp; hammemi.amine@gmail.com</td>
@@ -258,9 +337,8 @@
                                 <tr>
                                     <td><i class="fas fa-map-marker-alt"></i>
                                     <div id="address">
-                                        Ezzahra residence 4,<br>
-                                        Apt6, Riadh al andalous,<br>
-                                        Ariana, Tunisia
+                                        Montréal,<br>
+                                        Québec,<br>
                                     </div>
                                     </td>
                                 </tr>
@@ -284,7 +362,7 @@
                             <textarea placeholder="your message" name="message" id="message" required rows="5"></textarea><br>
                             <!-- <input type="file" name="myfile" id="myfile" placeholder="Upload file" required><br> -->
                             <div data-netlify-recaptcha="true"></div>
-                            <button class="btn_one">send</button>
+                            <button id="send" data-en="Send" data-fr="Envoyer"class="btn_one">Send</button>
                         </form> 
                     </td>
                 </tr>
@@ -295,5 +373,32 @@
     <script src="js/index.js" type="text/javascript"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/isotope.js"></script>
+<script>
+  function updateLanguageTexts(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+  }
+
+  function switchLanguage() {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === "fr" ? "en" : "fr";
+    document.documentElement.lang = newLang;
+    localStorage.setItem("lang", newLang);
+    document.getElementById("lang-btn").textContent = newLang === "fr" ? "En" : "Fr";
+    updateLanguageTexts(newLang);
+  }
+
+  // Run on load
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "en";
+    document.documentElement.lang = savedLang;
+    document.getElementById("lang-btn").textContent = savedLang === "fr" ? "En" : "Fr";
+    updateLanguageTexts(savedLang);
+  });
+</script>
+
+
+	
 </body>
 </html>
