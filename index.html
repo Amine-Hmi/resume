@@ -30,12 +30,12 @@
     }
   };
 
-  function updateLanguageTexts(lang) {
-    document.querySelectorAll("[data-key]").forEach(el => {
-      const key = el.getAttribute("data-key");
-      el.textContent = translations[lang][key];
-    });
-  }
+function updateLanguageTexts(lang) {
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.textContent = el.getAttribute("data-" + lang);
+  });
+}
+
 
   // On page load
   window.addEventListener("DOMContentLoaded", () => {
@@ -85,9 +85,10 @@
 	</td>
       <td id="logo">Amine Hammami</td>
       <td id="navigation">
-          <a href="#work" data-en="Work" data-fr="Projets">Work</a>
+		<nav>
           <a href="#bio" data-en="About" data-fr="À propos">About</a>
           <a href="#resume" data-en="Resume" data-fr="CV">Resume</a>
+          <a href="#work" data-en="Work" data-fr="Projets">Work</a>
           <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
           <a href="blog.html" data-en="Gallery" data-fr="Galerie">Gallery</a>
         </nav>
@@ -130,6 +131,56 @@
             <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
         </tr>
     </table>
+	<div id="bio">
+  <h1 data-en="About" data-fr="À propos">About</h1>
+  <div class="bio_infos">
+    <p 
+      data-en="Hello! I'm Amine Hammami, a former aircraft maintenance engineer who transitioned into the dynamic world of data and technology. With 8+ years of technical experience and a passion for problem-solving, I decided to pivot into a more innovative field where I could combine my analytical mindset with creativity." 
+      data-fr="Bonjour ! Je suis Amine Hammami, ancien ingénieur en maintenance aéronautique reconverti dans le monde dynamique des données et des technologies. Fort de plus de 8 ans d'expérience technique et d'une passion pour la résolution de problèmes, j'ai choisi de me réorienter vers un domaine plus innovant où je peux allier esprit analytique et créativité.">
+      Hello! I'm Amine Hammami, a former aircraft maintenance engineer...
+    </p>
+
+    <p 
+      data-en="I recently graduated as a Data Analyst / Data Engineer / BI Analyst, and I'm deeply passionate about data modeling, automation, cloud technologies, and building insightful dashboards that drive business decisions." 
+      data-fr="Je suis récemment diplômé en tant qu'Analyste de données / Ingénieur de données / Analyste BI, et je suis profondément passionné par la modélisation des données, l'automatisation, les technologies cloud, et la création de tableaux de bord pertinents pour orienter les décisions d'affaires.">
+      I recently graduated as a Data Analyst / Data Engineer / BI Analyst...
+    </p>
+
+    <p 
+      data-en="Throughout my journey, I've gained hands-on experience in Python, SQL, Power BI, Databricks, and Azure. I also enjoy front-end development and design, often exploring ways to blend tech and art through web projects and data storytelling." 
+      data-fr="Tout au long de mon parcours, j'ai acquis une expérience pratique en Python, SQL, Power BI, Databricks et Azure. J'apprécie également le développement front-end et le design, explorant souvent comment combiner technologie et art à travers des projets web et des récits de données.">
+      Throughout my journey, I've gained hands-on experience...
+    </p>
+
+    <p 
+      data-en="Curious, self-driven, and constantly learning — I’m currently open to opportunities where I can apply my skills to help organizations turn data into value." 
+      data-fr="Curieux, autonome et toujours en quête d'apprentissage, je suis actuellement à la recherche d'opportunités pour mettre mes compétences au service des organisations et les aider à transformer leurs données en valeur.">
+      Curious, self-driven, and constantly learning...
+    </p>
+
+    <p 
+      data-en="When I’m not coding or designing, I’m either playing guitar, taking photos, or tinkering with Raspberry Pi projects." 
+      data-fr="Quand je ne code pas et que je ne conçois pas, je joue de la guitare, je prends des photos ou je bidouille des projets sur Raspberry Pi.">
+      When I’m not coding or designing...
+    </p>
+  </div>
+</div>
+<div id="resume">
+  <h1>Resume</h1>
+  <div>
+    <button id="cv-button"
+            class="btn_two"
+            data-en="Resume"
+            data-fr="CV"
+            data-en-file="./English_Cv.pdf"
+            data-fr-file="./French_Cv.pdf"
+            onclick="openCv()">
+      My Resume
+    </button>
+  </div>
+</div>
+
+    </div>
     <div id="work">
 	
           <h1 data-en="Work" data-fr="Projets">Work</h1>
@@ -147,6 +198,8 @@
                             <li><a href="#" data-filter=".apps">Apps</a></li>
                             <li><a href="#" data-filter=".me">Me</a></li>
                             <li><a href="#" data-filter=".websites">Websites</a></li>
+							<li><a href="#" data-filter=".data">Data</a></li>
+
     
                         </ul>
     
@@ -236,6 +289,60 @@
     
     
                             </li>
+							
+							<li class="data grid-item">
+    
+    
+                                <div class="item">
+    
+                                    <img src="img/portfolio/thumbnails/nlp.png">
+    
+    
+                                    <div class="icons">
+                                        <a href="img/portfolio/nlp.png" title="View image" class="openButton" data-fancybox data-caption="Tweets sentiments analysis">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+    
+                                        <a href="https://github.com/Amine-Hmi/Twitter-sentiment-analysis" target="_blank" class="projectLink">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    </div>
+    
+                                    <div class="imageOverlay">
+                                        <span class="desc-overlay">Tweets sentiment analysis</span>
+                                    </div>
+    
+                                </div>
+    
+    
+                            </li>
+							<li class="data dashboard grid-item">
+    
+    
+                                <div class="item">
+    
+                                    <img src="img/portfolio/thumbnails/bixi.png">
+    
+    
+                                    <div class="icons">
+                                        <a href="img/portfolio/bixi.png" title="View image" class="openButton" data-fancybox data-caption="Dashboard for bicycle renting app">
+                                            <i class="fa fa-search"></i>
+    
+                                        </a>
+                                        <a href="https://public.tableau.com/app/profile/amine.hammami/viz/BIXI2021/Tableaudebord1?publish=yes" target="_blank" class="projectLink">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    </div>
+    
+                                    <div class="imageOverlay">
+                                        <span class="desc-overlay">Bixi Dashboard</span>
+                                    </div>
+    
+                                </div>
+    
+    
+                            </li>
+							
 
                             <li class="me grid-item">
     
@@ -278,46 +385,7 @@
 
 
 </div>
-    <div id="bio">
-  <h1 data-en="About" data-fr="À propos">About</h1>
-  <div class="bio_infos">
-    <p 
-      data-en="Hello! I'm Amine Hammami, a former aircraft maintenance engineer who transitioned into the dynamic world of data and technology. With 8+ years of technical experience and a passion for problem-solving, I decided to pivot into a more innovative field where I could combine my analytical mindset with creativity." 
-      data-fr="Bonjour ! Je suis Amine Hammami, ancien ingénieur en maintenance aéronautique reconverti dans le monde dynamique des données et des technologies. Fort de plus de 8 ans d'expérience technique et d'une passion pour la résolution de problèmes, j'ai choisi de me réorienter vers un domaine plus innovant où je peux allier esprit analytique et créativité.">
-      Hello! I'm Amine Hammami, a former aircraft maintenance engineer...
-    </p>
-
-    <p 
-      data-en="I recently graduated as a Data Analyst / Data Engineer / BI Analyst, and I'm deeply passionate about data modeling, automation, cloud technologies, and building insightful dashboards that drive business decisions." 
-      data-fr="Je suis récemment diplômé en tant qu'Analyste de données / Ingénieur de données / Analyste BI, et je suis profondément passionné par la modélisation des données, l'automatisation, les technologies cloud, et la création de tableaux de bord pertinents pour orienter les décisions d'affaires.">
-      I recently graduated as a Data Analyst / Data Engineer / BI Analyst...
-    </p>
-
-    <p 
-      data-en="Throughout my journey, I've gained hands-on experience in Python, SQL, Power BI, Databricks, and Azure. I also enjoy front-end development and design, often exploring ways to blend tech and art through web projects and data storytelling." 
-      data-fr="Tout au long de mon parcours, j'ai acquis une expérience pratique en Python, SQL, Power BI, Databricks et Azure. J'apprécie également le développement front-end et le design, explorant souvent comment combiner technologie et art à travers des projets web et des récits de données.">
-      Throughout my journey, I've gained hands-on experience...
-    </p>
-
-    <p 
-      data-en="Curious, self-driven, and constantly learning — I’m currently open to opportunities where I can apply my skills to help organizations turn data into value." 
-      data-fr="Curieux, autonome et toujours en quête d'apprentissage, je suis actuellement à la recherche d'opportunités pour mettre mes compétences au service des organisations et les aider à transformer leurs données en valeur.">
-      Curious, self-driven, and constantly learning...
-    </p>
-
-    <p 
-      data-en="When I’m not coding or designing, I’m either playing guitar, taking photos, or tinkering with Raspberry Pi projects." 
-      data-fr="Quand je ne code pas et que je ne conçois pas, je joue de la guitare, je prends des photos ou je bidouille des projets sur Raspberry Pi.">
-      When I’m not coding or designing...
-    </p>
-  </div>
-</div>
-	<div id="resume">
-        <h1>Resume</h1>
-        <div>
-            <button  data-en="Resume" data-fr="CV" class="btn_two" onclick="window.open('./English_Cv.pdf','_blank')">My Resume</button>
-        </div>
-    </div>
+    
     <div id="contact">
         <h1>Contact</h1>
             <table>
@@ -374,10 +442,37 @@
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/isotope.js"></script>
 <script>
+function openCv() {
+  const btn = document.getElementById('cv-button');
+  const lang = document.documentElement.lang || 'en';
+  const fileAttr = `data-${lang}-file`;
+  const file = btn.getAttribute(fileAttr);
+  window.open(file, '_blank');
+}
+
+function updateLangContent(lang) {
+  // Switch language attribute
+  document.documentElement.lang = lang;
+
+  // Update text content from data-en / data-fr
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = lang === 'fr' ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+  });
+
+  // Optional: Update button label separately if needed
+  const cvButton = document.getElementById('cv-button');
+  if (cvButton) {
+    cvButton.textContent = lang === 'fr'
+      ? cvButton.getAttribute('data-fr')
+      : cvButton.getAttribute('data-en');
+  }
+}
+
   function updateLanguageTexts(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
       el.textContent = el.getAttribute(`data-${lang}`);
     });
+	
   }
 
   function switchLanguage() {
