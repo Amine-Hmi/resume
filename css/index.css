@@ -12,6 +12,8 @@ body {
     overflow-x:hidden;
     scroll-behavior: smooth;
 }
+
+
 #loading {
     width: 100vw;
     height: 100vh;
@@ -27,7 +29,7 @@ body {
     animation: rotate 0.56s infinite linear;
     width:50px;
     height:50px;
-    border:12px solid rgb(255, 44, 90);
+    border:12px solid #ff2c5a;
     border-bottom:12px solid #fff;
     border-radius:50%;
     margin:0;
@@ -52,9 +54,27 @@ header table {
 #logo {
     width:20%;
 }
+
+
 #navigation {
-    width:80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 17%; /* 🠔 Ajuste ce pourcentage selon la position du rose */
+  gap: 20px;
+  background: none; /* on garde le fond transparent */
+  width: 100%;
+  box-sizing: border-box;
 }
+
+#navigation a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+
 #magnify {
     width:100vw;
     height:100vh;
@@ -74,7 +94,7 @@ header table {
     transition:0.4s ease-in-out;
 }
 #magnify h1:hover{
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     cursor:pointer;
 }
 #img_here {
@@ -86,7 +106,7 @@ header table {
 }
 #logo {
     font-size:24px;
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
 }
 #navigation {
     text-align:right;
@@ -108,7 +128,7 @@ header table {
     border:2vh solid #fff;
 }
 #top_part tr td{
-    width:50%;
+    width:52%;
 }
 #about {
     width:84% !important;
@@ -133,7 +153,7 @@ header table {
     text-align:left;
 }
 .social {
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     font-size:23px;
     padding:12px 17px;
     border-radius:50%;
@@ -145,15 +165,15 @@ header table {
 .social:hover { 
     cursor: pointer;
     color:#fff;
-    background:rgb(255, 44, 90);
+    background:#ff2c5a;
     box-shadow:0px 10px 30px rgba(255, 66, 107,0.8);
 }
 .btn_one {
     font-size:18px;
     font-family: 'Poppins', sans-serif;
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     background:#fff;
-    border:3px solid rgb(255, 44, 90);
+    border:3px solid #ff2c5a;
     padding:8px 40px;
     width:40%;
     border-radius:80px;
@@ -165,7 +185,7 @@ header table {
     box-shadow:0px 10px 30px rgba(255, 44, 90, 0.8);
     cursor:pointer;
     color:#fff;
-    background:rgb(255, 44, 90);
+    background:#ff2c5a;
 }
 #rightImage {
     width:100%;
@@ -182,7 +202,7 @@ header table {
 }
 #work h1 {
     padding:5px 0px;
-    border-bottom:4px solid rgb(255, 44, 90);
+    border-bottom:4px solid #ff2c5a;
     width:6%;
 }
 #photos {
@@ -209,7 +229,7 @@ header table {
 }
 #bio h1 {
     padding:5px 0px;
-    border-bottom:4px solid rgb(255, 44, 90);
+    border-bottom:4px solid #ff2c5a;
     width:12%;
 }
 #resume {
@@ -219,7 +239,7 @@ header table {
 }
 #resume h1 {
     padding: 5px 0px;
-    border-bottom: 4px solid rgb(255, 44, 90);
+    border-bottom: 4px solid #ff2c5a;
     width: 9%;
 }
 .bio_infos {
@@ -229,9 +249,9 @@ header table {
 .btn_two {
     font-size:18px;
     font-family: 'Poppins', sans-serif;
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     background:#fff;
-    border:3px solid rgb(255, 44, 90);
+    border:3px solid #ff2c5a;
     padding:8px 40px;
     width:20%;
     border-radius:80px;
@@ -245,7 +265,7 @@ header table {
         box-shadow:0px 10px 30px rgba(255, 44, 90, 0.8);
         cursor:pointer;
         color:#fff;
-        background:rgb(255, 44, 90);
+        background:#ff2c5a;
             }
 
 #contact {
@@ -254,7 +274,7 @@ header table {
 }
 #contact h1 {
     padding:5px 0px;
-    border-bottom:4px solid rgb(255, 44, 90);
+    border-bottom:4px solid #ff2c5a;
     width:10%;
 }
 #contact table {
@@ -323,7 +343,7 @@ header table {
     font-weight:bold;
 }
 #footer a {
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     text-decoration:none;
 }
 ::placeholder {
@@ -387,7 +407,7 @@ button:focus {
     width:60%;
     margin:4vh auto;
     box-shadow:0px 10px 20px rgba(255, 44, 90, 0.8);
-    background:rgb(255, 44, 90);
+    background:#ff2c5a;
     color:#fff;
     }
     .btn_one:hover {
@@ -400,7 +420,7 @@ button:focus {
         margin:4vh auto;
         text-align: center;
         box-shadow:0px 10px 20px rgba(255, 44, 90, 0.8);
-        background:rgb(255, 44, 90);
+        background:#ff2c5a;
         color:#fff;
     
     }   
@@ -467,8 +487,8 @@ button:focus {
 }
 
 .filter .current {
-	background-color: rgb(255, 44, 90);
-	border-color: rgb(255, 44, 90);
+	background-color: #ff2c5a;
+	border-color: #ff2c5a;
 	color: #fff;
 }
 
@@ -528,7 +548,7 @@ button:focus {
 .items a {
 	width: 40px;
     height: 40px;
-    background-color: rgb(255, 44, 90);
+    background-color: #ff2c5a;
     position: relative;
     display: inline-block;
 
@@ -593,7 +613,7 @@ button:focus {
 .items .item .desc-overlay {
     position: absolute;
     z-index: 3;
-    background-color:  rgb(255, 44, 90);
+    background-color:  #ff2c5a;
     color: white;
     width: 50%;
     margin: 0 auto;
@@ -612,15 +632,15 @@ button:focus {
 
 #gallery h1 {
     padding:5px 0px;
-    border-bottom:4px solid rgb(255, 44, 90);
+    border-bottom:4px solid #ff2c5a;
     width:10%;
 }
 #back {
     font-size:18px;
     font-family: 'Poppins', sans-serif;
-    color:rgb(255, 44, 90);
+    color:#ff2c5a;
     background:#fff;
-    border:3px solid rgb(255, 44, 90);
+    border:3px solid #ff2c5a;
     padding:8px 40px;
     border-radius:80px;
     font-weight:bold;
@@ -633,7 +653,7 @@ button:focus {
     box-shadow:0px 10px 30px rgba(255, 44, 90, 0.8);
     cursor:pointer;
     color:#fff;
-    background:rgb(255, 44, 90);
+    background:#ff2c5a;
 
 }
 
@@ -653,9 +673,9 @@ button:focus {
 
 .btn_language {
     font-size: 14px;
-    color: rgb(255, 44, 90);
+    color: #ff2c5a;
     background: transparent;
-    border: 1px solid rgb(255, 44, 90);
+    border: 1px solid #ff2c5a;
     border-radius: 15px;
     padding: 4px 10px;
     cursor: pointer;
@@ -663,7 +683,7 @@ button:focus {
 }
 
 .btn_language:hover {
-    background-color: rgb(255, 44, 90);
+    background-color: #ff2c5a;
     color: white;
 }
 
@@ -724,4 +744,11 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(32px);
 }
+
+
+
+
+
+
+
 
