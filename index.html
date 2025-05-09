@@ -38,11 +38,17 @@ function updateLanguageTexts(lang) {
 
 
   // On page load
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("lang") || "en";
-    document.documentElement.lang = savedLang;
-    updateLanguageTexts(savedLang);
-  });
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "en";
+  document.documentElement.lang = savedLang;
+  updateLanguageTexts(savedLang);
+
+  // Add the visit tracking code here:
+  fetch('/.netlify/functions/track-visit')
+    .then(response => response.json())
+    .then(data => console.log('Visit tracking:', data))
+    .catch(error => console.error('Error tracking visit:', error));
+});
 
   function switchLanguage() {
     const currentLang = document.documentElement.lang;

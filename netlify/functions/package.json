@@ -1,0 +1,8 @@
+{
+  "name": "data-handler",
+  "version": "1.0.0",
+  "description": "Handles data processing for certain requests.",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
